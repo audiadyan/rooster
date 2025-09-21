@@ -5,7 +5,7 @@
         "appID": "8AH6UWGUNK.com.SAR.rooster",
         "components": [
             {
-                "/": "reflection/*"
+                "/": "/reflection/*"
             }
         ]
       }
