@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Reflection Share</title>
+  <meta name="robots" content="noindex,nofollow" />
+  <style>
+    :root { color-scheme: light dark; }
+    body { font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif; margin: 0; padding: 24px; line-height: 1.5; }
+    .container { max-width: 720px; margin: 0 auto; }
+    .kv { padding: 12px 14px; border: 1px solid #ccc; border-radius: 12px; }
+    .row { display:flex; gap:8px; }
+    .row > div:first-child { width: 80px; opacity:.7; }
+    .btn { display:inline-block; padding:10px 14px; border-radius:10px; text-decoration:none; border:1px solid #888; margin-top:12px; }
+    code { word-break: break-all; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Reflection — Share</h1>
+    <p>Halaman ini adalah landing untuk Universal Link. Jika app tidak otomatis terbuka, kamu bisa tekan tombol di bawah untuk pakai <i>custom URL scheme</i>.</p>
+
+    <div id="kv" class="kv">
+      <div class="row"><div>text</div><div><code id="text">(kosong)</code></div></div>
+      <div class="row"><div>url</div><div><code id="url">(kosong)</code></div></div>
+    </div>
+
+    <a id="openBtn" class="btn" href="#">Open in App (custom scheme)</a>
+
+    <script>
+      // Parse query params
+      const params = new URLSearchParams(location.search);
+      const text = params.get('text') || '';
+      const url  = params.get('url')  || '';
+
+      // Tampilkan
+      document.getElementById('text').textContent = text || '(kosong)';
+      document.getElementById('url').textContent  = url  || '(kosong)';
+
+      // Siapkan tautan custom scheme fallback: reflection://share?text=...&url=...
+      const scheme = new URL('reflection://share');
+      const q = [];
+      if (text) q.push(['text', text]);
+      if (url)  q.push(['url', url]);
+      scheme.search = new URLSearchParams(q).toString();
+
+      const btn = document.getElementById('openBtn');
+      btn.href = scheme.toString();
+    </script>
+  </div>
+</body>
+</html>
