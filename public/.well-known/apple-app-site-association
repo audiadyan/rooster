@@ -1,0 +1,10 @@
+{
+  "applinks": {
+    "details": [
+      {
+        "appID": "8AH6UWGUNK.com.SAR.rooster",
+        "paths": [ "/reflection/*" ]
+      }
+    ]
+  }
+}
