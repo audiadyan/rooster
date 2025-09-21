@@ -3,11 +3,7 @@
     "details": [
       {
         "appID": "8AH6UWGUNK.com.SAR.Rooster",
-        "components": [
-            {
-                "/": "/reflection/*"
-            }
-        ]
+        "paths": [ "/reflection/*" ]
       }
     ]
   }
